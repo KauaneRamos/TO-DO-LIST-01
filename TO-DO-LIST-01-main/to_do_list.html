@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <title>To Do List</title>
+    <style>
+        .header{
+            background-color: rgba(133, 80, 130, 0.836);
+        }
+        * {
+            box-sizing: border-box;
+        }
+            .body {
+            background-color: rgba(133, 80, 130, 0.836);
+            margin: 0;
+        }
+        ul li {
+            cursor: pointer;
+            padding: 10px 8px 12px 40px;
+            background: #eee;
+            font-size: 16px;
+        }
+        ul {
+            margin: 0 300px 0 300px;
+        }
+        .ch {
+            margin-right: 50px;
+            background-color: rgba(133, 80, 130, 0.836);
+        }
+        .bt{
+            margin-left: 50px;
+            background-color:rgba(133, 80, 130, 0.836);
+        }
+
+
+    </style>
+</head>
+<body background="fundo.png">
+   <center> <div id="div" class="header">
+        <h2>To Do List</h2>
+        <input style="font-size:16px"; type="text" id="input" placeholder="Escreva...">
+        <button style="font-size:16px";><span onclick="add()" class="addButton">Add</span></button>
+      </div> </center>
+      <br>
+
+      <center><ul id="ul">
+
+      </ul>
+    </center>
+    
+
+     <script>
+         function add(){
+            var task = document.getElementById("input").value;
+            var li = document.createElement("li");
+            var t = document.createTextNode(task);
+            var check = document.createElement("button");
+            check.innerHTML = "Check";
+            check.addEventListener("click",function(){
+                li.style.textDecoration="line-through";
+            })
+            li.appendChild(t);
+            if (task==""){
+                alert ("Escreva algo!");}
+            else {
+                document.getElementById("ul").appendChild(li);
+            }    
+            document.getElementById("input").value="";
+            var button = document.createElement('button');
+            button.innerHTML = "Remover";
+            button.addEventListener("click", function() {
+            li.remove();})
+            li.appendChild(check);
+            li.appendChild(t);
+            li.appendChild(button);
+            document.getElementById('ul').appendChild(li);
+            document.getElementById('input').value="";
+            check.className="ch";
+            button.className="bt";
+            
+            
+        
+        }
+
+
+
+      </script>
+</body>
+</html>
